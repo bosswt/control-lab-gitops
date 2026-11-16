@@ -1,19 +1,20 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
   name: web
+  namespace: argocd
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: web
-  template:
-    metadata:
-      labels:
-        app: web
-    spec:
-      containers:
-        - name: nginx
-          image: nginx:1.27
-          ports:
-            - containerPort: 80
+  project: default
+  source:
+    repoURL: https://github.com/bosswt/control-lab-gitops.git
+    targetRevision: main
+    path: apps/web
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: lab
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: false
+    syncOptions:
+      - CreateNamespace=true

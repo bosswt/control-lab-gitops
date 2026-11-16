@@ -17,3 +17,9 @@ spec:
           image: nginx:1.27
           ports:
             - containerPort: 80
+          env:
+            - name: GREETING
+              valueFrom:
+                secretKeyRef:
+                  name: web-greeting
+                  key: GREETING
