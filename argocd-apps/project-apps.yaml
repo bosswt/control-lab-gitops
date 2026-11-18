@@ -8,7 +8,7 @@ metadata:
 spec:
   description: Team applications
   sourceRepos:
-    - https://github.com/bosswt/control-lab-gitops.github
+    - https://github.com/bosswt/control-lab-gitops.git
   destinations:
     - server: https://kubernetes.default.svc
       namespace: lab
