@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: apps
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  description: Team applications
+  sourceRepos:
+    - https://github.com/bosswt/control-lab-gitops.github
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: lab
+  clusterResourceWhitelist: []

@@ -4,7 +4,7 @@ metadata:
   name: web
   namespace: argocd
 spec:
-  project: default
+  project: apps
   source:
     repoURL: https://github.com/bosswt/control-lab-gitops.git
     targetRevision: main
@@ -17,4 +17,3 @@ spec:
       selfHeal: true
       prune: false
     syncOptions:
-      - CreateNamespace=true
