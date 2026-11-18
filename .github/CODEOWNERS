@@ -1,0 +1,4 @@
+# who must approve changes to each path
+/argocd-apps/   @bosswt
+/apps/web/      @bosswt
+/.github/       @bosswt
