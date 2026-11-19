@@ -4,7 +4,7 @@ metadata:
   name: management
   namespace: github
   annotations:
-    crossplane.io/external-name: management
+    crossplane.io/external-name: "20777814"
 spec:
   managementPolicies: ["Observe"]
   forProvider: {}
