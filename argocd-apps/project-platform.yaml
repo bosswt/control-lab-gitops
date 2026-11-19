@@ -10,11 +10,14 @@ spec:
   sourceRepos:
     - https://helm.releases.hashicorp.com
     - https://charts.external-secrets.io
+    - https://charts.crossplane.io/stable
   destinations:
     - server: https://kubernetes.default.svc
       namespace: vault
     - server: https://kubernetes.default.svc
       namespace: external-secrets
+    - server: https://kubernetes.default.svc
+      namespace: crossplane-system
   clusterResourceWhitelist:
     - group: "*"
       kind: "*"
