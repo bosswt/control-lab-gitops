@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: argocd-config
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  description: Argo CD's own supporting resources
+  sourceRepos:
+    - https://github.com/bosswt/control-lab-gitops.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: argocd
+  clusterResourceWhitelist: []
+  namespaceResourceWhitelist:
+    - { group: "", kind: ServiceAccount}
+    - { group: external-secrets.io, kind: SecretStore}
+    - { group: external-secrets.io, kind: ExternalSecret}
