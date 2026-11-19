@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: access-github
+  namespace: argocd
+spec:
+  project: access
+  source:
+    repoURL: https://github.com/bosswt/control-lab-gitops.git
+    targetRevision: main
+    path: access/github
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: github
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: false

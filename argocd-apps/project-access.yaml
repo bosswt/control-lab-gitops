@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: access
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+spec:
+  description: GitHub teams and repos, managed as code
+  sourceRepos:
+    - https://github.com/bosswt/control-lab-gitops.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: github
+  clusterResourceWhitelist: []
+  namespaceResourceWhitelist:
+    - { group: team.github.m.upbound.io, kind: "*" }
+    - { group: repo.github.m.upbound.io, kind: Repository }

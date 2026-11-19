@@ -1,0 +1,11 @@
+apiVersion: github.m.upbound.io/v1beta1
+kind: ClusterProviderConfig
+metadata:
+  name: default
+spec:
+  credentials:
+    source: Secret
+    secretRef:
+      name: github-credentials
+      namespace: crossplane-system
+      key: credentials

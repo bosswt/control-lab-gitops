@@ -1,0 +1,13 @@
+apiVersion: team.github.m.upbound.io/v1alpha1
+kind: Team
+metadata:
+  name: management
+  namespace: github
+  annotations:
+    crossplane.io/external-name: management
+spec:
+  managementPolicies: ["Observe"]
+  forProvider: {}
+  providerConfigRef:
+    kind: ClusterProviderConfig
+    name: default

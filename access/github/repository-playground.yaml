@@ -1,0 +1,13 @@
+apiVersion: repo.github.m.upbound.io/v1alpha1
+kind: Repository
+metadata:
+  name: playground
+  namespace: github
+  annotations:
+    crossplane.io/external-name: playground
+spec:
+  managementPolicies: ["Observe"]
+  forProvider: {}
+  providerConfigRef:
+    kind: ClusterProviderConfig
+    name: default
