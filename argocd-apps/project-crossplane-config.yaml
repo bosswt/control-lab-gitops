@@ -14,6 +14,8 @@ spec:
       namespace: crossplane-system
   clusterResourceWhitelist:
     - { group: pkg.crossplane.io, kind: Provider}
+    - { group: github.m.upbound.io, kind: ClusterProviderConfig}
+    - { group: "", kind: Namespace}
   namespaceResourceWhitelist:
     - { group: "", kind: ServiceAccount }
     - { group: external-secrets.io, kind: ExternalSecret}
