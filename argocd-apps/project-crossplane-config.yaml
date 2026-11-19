@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
-metdata:
+metadata:
   name: crossplane-config
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
-  spec:
-    description: Crossplane providers and their credentials
-    sourceRepos:
-      - https://github.com/bosswt/control-lab-gitops.git
-    destinations:
-      - server: https://kubernetes.default.svc
-        namespace: crossplane-system
-    clusterResourceWhitelist:
-      - { group: pkg.crossplane.io, kind: Provider}
-    namespaceResourceWhitelist:
-      - { group: "", kind: ServiceAccount }
-      - { group: external-secrets.io, kind: ExternalSecret}
-      - { group: external-secrets.io, kind: SecretStore}
+spec:
+  description: Crossplane providers and their credentials
+  sourceRepos:
+    - https://github.com/bosswt/control-lab-gitops.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: crossplane-system
+  clusterResourceWhitelist:
+    - { group: pkg.crossplane.io, kind: Provider}
+  namespaceResourceWhitelist:
+    - { group: "", kind: ServiceAccount }
+    - { group: external-secrets.io, kind: ExternalSecret}
+    - { group: external-secrets.io, kind: SecretStore}
