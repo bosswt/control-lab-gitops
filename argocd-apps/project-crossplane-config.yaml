@@ -1,4 +1,4 @@
-apiVersion: argoproj.jio/v1alpha1
+apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metdata:
   name: crossplane-config
