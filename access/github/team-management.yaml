@@ -7,7 +7,9 @@ metadata:
     crossplane.io/external-name: "20777814"
 spec:
   managementPolicies: ["Observe"]
-  forProvider: {}
+  forProvider: {
+    description: "Management team for the organization"
+  }
   providerConfigRef:
     kind: ClusterProviderConfig
     name: default
